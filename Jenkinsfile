@@ -26,5 +26,18 @@ pipeline {
                 """
             }
         }
+        stage("Push the changed deployment file to Git") {
+            steps {
+                sh """
+                   git config --global user.name "Shivasai011"
+                   git config --global user.email "shivasaibogem@gmail.com"
+                   git add deployment.yaml
+                   git commit -m "Updated Deployment Manifest"
+                """
+                withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
+                  sh "git push https://github.com/Shivasai011/gitops-trigger-app.git main"
+                }
+            }
+        }
     }
 }
