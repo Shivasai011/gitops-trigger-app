@@ -1,15 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: register-app-service
-  labels:
-    app: register-app 
+  name: svc-ci
 spec:
-  selector:
-    app: register-app
-
+  type: NodePort
+  selector: 
+    app: test
   ports:
-    - port: 8080
-      targetPort: 8080
-
-  type: LoadBalancer
+  - protocol: TCP
+    port: 8080
