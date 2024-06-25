@@ -4,16 +4,16 @@ metadata:
   name: continuos-integration
 spec:
   replicas: 3
-selector:
-  matchLabels:
-    app: test
-  template:
-    metadata:
-      labels:
-        app:test
-    spec:
-      containers:
-      - name: ci
-        image: shivabogem/pipeline:1.0-12
-        ports:
-        - containerPort: 8080
+  selector:
+    matchLabels:
+      app: test
+    template:
+      metadata:
+        labels:
+          app:test
+      spec:
+        containers:
+        - name: ci
+          image: shivabogem/pipeline:1.0-12
+          ports:
+          - containerPort: 8080
