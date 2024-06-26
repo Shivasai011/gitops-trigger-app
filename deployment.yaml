@@ -1,11 +1,11 @@
-apiVersion:apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: continuous-integration
 spec:
   replicas: 2
   selector:
-    matchlabels:
+    matchLabels:
       app: test
   template:
     metadata:
