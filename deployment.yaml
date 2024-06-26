@@ -1,19 +1,19 @@
-apiVersion: apps/v1
+apiVersion:apps/v1
 kind: Deployment
 metadata:
-  name: continuos-integration
+  name: continuous-integration
 spec:
-  replicas: 3
+  replicas: 2
   selector:
-    matchLabels:
+    matchlabels:
       app: test
   template:
     metadata:
       labels:
-        app:test
+        app: test
     spec:
       containers:
-      - name: ci
+      - name: pod
         image: shivabogem/pipeline:1.0-12
         ports:
-        - containerPort: 8080
+        - containerPort: 80
